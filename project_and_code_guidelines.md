@@ -80,7 +80,8 @@ Una buena práctica es no incluir la palabra `menu` como parte del nombre porque
 
 #### 1.2.2.4 Values files
 
-Resource files in the values folder should be __plural__, e.g. `strings.xml`, `styles.xml`, `colors.xml`, `dimens.xml`, `attrs.xml`
+El nombrado de los archivos de recursos que se encuentran en la carpeta values deben ser en __plural__, 
+Ejemplo:  `Strings.xml`,` styles.xml`, `colors.xml`,` dimens.xml`, `attrs.xml`
 
 # 2 Code guidelines
 
@@ -88,7 +89,7 @@ Resource files in the values folder should be __plural__, e.g. `strings.xml`, `s
 
 ### 2.1.1 Don't ignore exceptions
 
-You must never do the following:
+Nunca hagas lo siguiente:
 
 ```java
 void setServerPort(String value) {
@@ -98,13 +99,14 @@ void setServerPort(String value) {
 }
 ```
 
-_While you may think that your code will never encounter this error condition or that it is not important to handle it, ignoring exceptions like above creates mines in your code for someone else to trip over some day. You must handle every Exception in your code in some principled way. The specific handling varies depending on the case._ - ([Android code style guidelines](https://source.android.com/source/code-style.html))
+Es muy importante el manejo de las excepciones, esta mala práctica puede dificultar que otra persona puedan realizar modificaciones de manera efectiva. 
+Informacion sobre el manejo de excepciones_ - ([Android code style guidelines](https://source.android.com/source/code-style.html))
 
-See alternatives [here](https://source.android.com/source/code-style.html#dont-ignore-exceptions).
+Referencias alternativas [here](https://source.android.com/source/code-style.html#dont-ignore-exceptions).
 
 ### 2.1.2 Don't catch generic exception
 
-You should not do this:
+Nunca hagas lo siguiente:
 
 ```java
 try {
@@ -117,20 +119,20 @@ try {
 }
 ```
 
-See the reason why and some alternatives [here](https://source.android.com/source/code-style.html#dont-catch-generic-exception)
+Razones por la que no debes realizar esta práctica [here](https://source.android.com/source/code-style.html#dont-catch-generic-exception)
 
-### 2.1.3 Don't use finalizers
+### 2.1.3 No uses finalizers
 
-_We don't use finalizers. There are no guarantees as to when a finalizer will be called, or even that it will be called at all. In most cases, you can do what you need from a finalizer with good exception handling. If you absolutely need it, define a `close()` method (or the like) and document exactly when that method needs to be called. See `InputStream` for an example. In this case it is appropriate but not required to print a short log message from the finalizer, as long as it is not expected to flood the logs._ - ([Android code style guidelines](https://source.android.com/source/code-style.html#dont-use-finalizers))
+_No existe la garantía que el método finalize() se ejecute. Si es absolutamente necesario es recomendable definir un método `close ()` (o similar) además de documentar exactamente qué es lo que realiza y en qué momento se realiza el llamado a dicho método._ - ([Android code style guidelines](https://source.android.com/source/code-style.html#dont-use-finalizers))
 
 
 ### 2.1.4 Fully qualify imports
 
-This is bad: `import foo.*;`
+Esto esta mal: `import foo.*;`
 
-This is good: `import foo.Bar;`
+Esto esta bien: `import foo.Bar;`
 
-See more info [here](https://source.android.com/source/code-style.html#fully-qualify-imports)
+Puedes obtener más información en el siguiente enlace [here](https://source.android.com/source/code-style.html#fully-qualify-imports)
 
 ## 2.2 Java style rules
 
